@@ -71,6 +71,7 @@ contract Crowfunding {
     }
 
     function changeProjectState(FundraingState _newState, uint _projectIndex) public isAuthor(_projectIndex) {
+        Project memory project = projects[_projectIndex];
         require(project.state != _newState, "New state must be different");
         projects[_projectIndex].state = _newState;
         emit ProjectStateChanged(project.id, _newState);

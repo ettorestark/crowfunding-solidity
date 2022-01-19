@@ -1,16 +1,13 @@
 require("@nomiclabs/hardhat-waffle");
 require('dotenv').config();
 
-const RINKEBY_RPC_URL = process.env.INFIURA;
-const PRIVATE_KEY = process.env.PRIVATE_KEY;
-
 module.exports = {
   solidity: "0.8.4",
   networks: {
     rinkeby: {
-      url: RINKEBY_RPC_URL,
+      url: `https://rinkeby.infura.io/v3/${process.env.INFIURA_PROJECT_ID}`,
       accounts: [
-        PRIVATE_KEY
+        process.env.DEPLOYER_SIGNER_PRIVATE_KEY
       ]
     }
   }
